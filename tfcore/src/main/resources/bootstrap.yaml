@@ -1,0 +1,46 @@
+spring:
+  main:
+    allow-bean-definition-overriding: true
+  profiles:
+    active: composite
+  application:
+    name: terraforce
+#  config:
+#    import: vault://
+#  cloud:
+#    config:
+#      server:
+#        enabled: true
+#        vault:
+#          kv-version: 2
+#        bootstrap: true
+#        composite:
+#          - type: jdbc
+#            sql: select prop_id, prop_value, sequence_number from idgc_fw_config_all_b a where ? is not null and ? is not null and ? is not null and category_id = 'cheque' and is_enabled ='Y' and sequence_number = ( select max(sequence_number) from idgc_fw_config_all_b b where a.category_id = b.category_id and a.prop_id = b.prop_id and is_enabled ='Y')
+#            order: 1
+#    vault:
+#      uri: ${VAULT_URI}
+#      reactive:
+#        enabled: false
+#      authentication: APPROLE
+#      app-role:
+#        role-id: ${ROLE_ID}
+#        secret-id: ${SECRET_ID}
+#        role: ${APPLICATION_ROLE}
+#        app-role-path: approle/
+#      kv:
+#        application-name: DATABASE,FTP,TENANTS,DATASOURCES
+#        backend: ${BACK_END}
+#        enabled: true
+#      scheme: https
+
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    driver-class-name: ${DB_DRIVER_CLASSNAME:org.postgresql.Driver}
+    url: ${DATABASE_URL:jdbc:postgresql://localhost:5432/test_cheque?useSSL=false}
+    username: ${DB_USER_NAME:cicd_test}
+    password: ${DB_USER_PASSWORD:dWjg6wYNQMFb}
+  jpa:
+    properties:
+      hibernate:
+        dialect: ${DB_DIALECT:org.hibernate.dialect.PostgreSQLDialect}
