@@ -1,8 +1,13 @@
 package com.tf.tfcore.endpoint.rest;
 
 
+import com.tf.tfcore.app.service.UserDetailsApplicationService;
+import com.tf.tfcore.domain.entity.UserDetailsEntity;
 import com.tf.tfcore.dto.UserDetailsDTO;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -11,16 +16,24 @@ import org.springframework.web.bind.annotation.RestController;
 @Slf4j
 public class UserDetailsControllerService {
 
+    public final UserDetailsApplicationService applicationService;
+
+    public UserDetailsControllerService(UserDetailsApplicationService applicationService) {
+        this.applicationService = applicationService;
+    }
+
     public void getAllUserDetails() {
-        // TODO document why this method is empty
+
     }
 
     public void getUserDetails(UserDetailsDTO userDTO) {
 
     }
 
-    public void addNewUserDetails(UserDetailsDTO userDTO) {
+    @PostMapping("/addUser")
+    public ResponseEntity<UserDetailsEntity> addNewUserDetails(UserDetailsDTO userDTO) {
 
+    return null;
     }
 
 }

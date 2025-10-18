@@ -5,7 +5,6 @@ import com.tf.tfcore.domain.repository.IUserDetailsRepository;
 import com.tf.tfcore.dto.UserDetailsDTO;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -21,7 +20,7 @@ public class UserDetailsDomainService {
     public void save(UserDetailsDTO userDetailsDTO) {
 
         try {
-            userDetailsRepository.save(userDetailsAssembler.dtoToEntity(userDetailsDTO));
+            userDetailsRepository.save(userDetailsAssembler.toEntity(userDetailsDTO));
         } catch (Exception e) {
             e.printStackTrace();
         }
