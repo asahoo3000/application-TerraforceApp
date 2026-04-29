@@ -11,7 +11,7 @@ import java.io.Serializable;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "tf_user_details")
+@Table(name = "TFC_TMS_USER_DETAILS")
 @Inheritance(strategy = InheritanceType.JOINED)
 @ToString
 @EqualsAndHashCode(callSuper = false)
@@ -22,7 +22,7 @@ public class UserDetailsEntity implements Serializable {
     private String userId;
 
     @Column(name = "user_name")
-    private String name;
+    private String userName;
 
     @Column(name = "password")
     private String password;

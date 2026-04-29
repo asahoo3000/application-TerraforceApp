@@ -1,0 +1,3 @@
+databaseChangeLog:
+  - include:
+      file: db/db-scripts/TFC_TMS_USER_DETAILS_create_tbl.xml

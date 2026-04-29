@@ -12,7 +12,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "ticket_details")
+@Table(name = "TFC_TMS_TICKET_DETAILS")
 @Inheritance(strategy = InheritanceType.JOINED)
 @ToString
 @EqualsAndHashCode(callSuper = false)
@@ -37,10 +37,7 @@ public class TicketDetailsEntity implements Serializable {
     @Column(name = "ticket_created_by")
     private String ticketCreatedBy;
 
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true, mappedBy = "ticketId")
     private List<CommentDetailsEntity> commentsList;
-
-
-
-
 
 }
